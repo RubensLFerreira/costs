@@ -1,8 +1,10 @@
+import Mensagem from "../components/layout/Mensagem"
+
 function Projetos() {
   return (
     <div>
-      <h1>Projeto</h1>
-      <p>Conteúdo da página</p>
+      <h1>Meus projeto</h1>
+      <Mensagem msg="Alguma mensagem" />
     </div>
   )
 }
