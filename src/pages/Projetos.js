@@ -3,6 +3,7 @@ import { useState, useEffect } from 'react'
 
 import Mensagem from "../components/layout/Mensagem"
 import Container from '../components/layout/Container'
+import Loadingg from '../components/layout/Loadingg'
 import LinkButton from '../components/layout/LinkButton'
 import ProjectCard from '../components/project/ProjectCard'
 
@@ -10,6 +11,7 @@ import styles from './Projetos.module.css'
 
 function Projetos() {
   const [projects, setProjects] = useState([])
+  const [removeLoading, setRemoveLoading] = useState(false)
 
   const location = useLocation();
   let message = ''
@@ -27,6 +29,7 @@ function Projetos() {
     .then((resp) => resp.json())
     .then((data) => {
       setProjects(data)
+      setRemoveLoading(true)
     })
     .catch((err) => console.log(err))
   }, [])
@@ -48,6 +51,10 @@ function Projetos() {
             category={project.category}
             key={project.key}
           />)}
+          {!removeLoading && <Loadingg />}
+          {removeLoading && projects.length === 0 && (
+            <p>Não há projetos cadastrados!</p>
+          )}
       </Container>
     </div>
   )
