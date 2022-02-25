@@ -6,6 +6,7 @@ function Loadingg() {
   return(
     <div className={styles.loader_container}>
       <img className={styles.loader} src={loading} alt="Loading" />
+      <p></p>
     </div>
   )
 }
