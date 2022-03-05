@@ -8,6 +8,7 @@ import Projetos from "./pages/Projetos";
 import NavBar from "./components/layout/NavBar";
 import Footer from "./components/layout/Footer";
 import Container from './components/layout/Container';
+import Project from "./pages/Project";
 
 function App() {
   return (
@@ -18,17 +19,20 @@ function App() {
           <Route exact path="/">
             <Home />
           </Route>
-          <Route exact path="/projetos">
+          <Route path="/projetos">
             <Projetos />
           </Route>
-          <Route exact path="/empresa">
+          <Route path="/empresa">
             <Empresa />
           </Route>
-          <Route exact path="/contato">
+          <Route path="/contato">
             <Contato />
           </Route>
-          <Route exact path="/novoprojeto">
+          <Route path="/novoprojeto">
             <NovoProjeto />
+          </Route>
+          <Route path="/project/:id">
+            <Project />
           </Route>
         </Container>
       </Switch>
